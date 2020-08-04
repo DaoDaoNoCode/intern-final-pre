@@ -1,0 +1,10 @@
+@import "../../node_modules/@patternfly/react-core/dist/styles/base.css";
+
+html,
+body,
+#___gatsby {
+  height: 100%;
+}
+#___gatsby > div {
+  height: 100%;
+}

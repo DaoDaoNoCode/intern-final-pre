@@ -1,0 +1,15 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.pf-c-notification-drawer__body {
+  overflow: visible;
+}
+.pf-c-notification-drawer__group.pf-m-expanded {
+  min-height: 0;
+}
+
+.pf-c-notification-drawer__list a {
+  text-decoration: none;
+  color: #333;
+}
