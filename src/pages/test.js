@@ -1,5 +1,4 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -8,12 +7,13 @@ import {
   Card,
   CardTitle,
   CardBody,
+  Text,
   TextContent,
   TextList,
   TextListItem,
 } from "@patternfly/react-core"
-import "../styles/accessibility.css"
 import ImageEmptyState from "../components/image-empty-state"
+import "../styles/override.css"
 
 const TestPage = () => (
   <Layout index={3} pageSectionVariant={PageSectionVariants.default}>
@@ -39,8 +39,10 @@ const TestPage = () => (
               group, and will be closed if there is no alert.
             </TextListItem>
           </TextList>
-          Based on the background knowledges above, I implement the test cases
-          as below.
+          <Text>
+            Based on the background knowledges above, I implement the test cases
+            as below.
+          </Text>
           <TextList>
             <TextListItem>
               Create some mock data, including only 3 other alerts but don't
@@ -76,7 +78,34 @@ const TestPage = () => (
     </Card>
     <Card>
       <CardTitle>Integration test using Cypress in PatternFly</CardTitle>
-      <CardBody></CardBody>
+      <CardBody>
+        <TextContent>
+          <Text>
+            Because there are some test cases for Notification Drawer in
+            PatternFly, I only create some test cases to test accessibility of
+            the components.
+          </Text>
+          <TextList>
+            <TextListItem>
+              When user press Enter key on the kebab toggle button in the
+              header, check whether the dropdown menu is expanded and whether it
+              focus on the first item in the menu.
+            </TextListItem>
+            <TextListItem>
+              When user press Tab key, check whether the dropdown menu closes
+              and it focus back to the kebab toggle button
+            </TextListItem>
+            <TextListItem>
+              When user press Enter key on a closed group, check whether the
+              group is expanded.
+            </TextListItem>
+            <TextListItem>
+              When user press Enter key on a expanded group, check whether the
+              group is closed.
+            </TextListItem>
+          </TextList>
+        </TextContent>
+      </CardBody>
     </Card>
   </Layout>
 )

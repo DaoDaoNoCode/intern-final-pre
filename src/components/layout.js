@@ -36,14 +36,20 @@ import {
   NotificationDrawerListItem,
   NotificationDrawerListItemBody,
   NotificationDrawerListItemHeader,
+  Divider,
+  Flex,
 } from "@patternfly/react-core"
 import { BellIcon } from "@patternfly/react-icons"
 import "./layout.css"
+import "../styles/override.css"
 import { Link } from "gatsby"
+import pfLogo from "../images/pfLogo.svg"
+import osLogo from "../images/osLogo.svg"
+import rhLogo from "../images/rhLogo.svg"
 
 const Layout = ({ children, index, pageSectionVariant }) => {
   const [activeItem, setItem] = React.useState(index)
-  const [firstGroupExpanded, setFirstGroupExpanded] = React.useState(true)
+  const [firstGroupExpanded, setFirstGroupExpanded] = React.useState(false)
   const [secondGroupExpanded, setSecondGroupExpanded] = React.useState(false)
   const [isDrawerExpanded, setDrawerExpanded] = React.useState(false)
   const [isRead, setRead] = React.useState("unread")
@@ -81,7 +87,7 @@ const Layout = ({ children, index, pageSectionVariant }) => {
           <Link to="/test">Test</Link>
         </NavItem>
         <NavItem itemId={4} isActive={activeItem === 4}>
-          Conclusion
+          <Link to="/conclusion">Conclusion</Link>
         </NavItem>
       </NavList>
     </Nav>
@@ -111,12 +117,20 @@ const Layout = ({ children, index, pageSectionVariant }) => {
     </PageHeaderTools>
   )
 
+  const Logo = (
+    <Flex style={{ marginLeft: "20px" }}>
+      <Brand
+        style={{ maxWidth: "48px" }}
+        src={rhLogo}
+        alt="Red Hat Logo"
+      ></Brand>
+      <Divider isVertical />
+      <Brand src={logo} style={{ maxWidth: "76px" }} alt="logo"></Brand>
+    </Flex>
+  )
+
   const Header = (
-    <PageHeader
-      logo={<Brand src={logo} alt="logo" />}
-      headerTools={HeaderTools}
-      topNav={TopNav}
-    />
+    <PageHeader logo={Logo} headerTools={HeaderTools} topNav={TopNav} />
   )
 
   const patternflyPR = [
@@ -285,7 +299,17 @@ const Layout = ({ children, index, pageSectionVariant }) => {
       <Drawer isExpanded={isDrawerExpanded}>
         <DrawerContent panelContent={panelContent}>
           <DrawerContentBody>
-            <PageSection variant={pageSectionVariant}>{children}</PageSection>
+            <PageSection
+              style={{ minHeight: "100%" }}
+              variant={pageSectionVariant}
+            >
+              {children}
+              <Flex style={{ margin: "40px" }}>
+                <Brand src={pfLogo} alt="Patternfly Logo" />
+                <Divider isVertical />
+                <Brand src={osLogo} alt="Openshift Logo" />
+              </Flex>
+            </PageSection>
           </DrawerContentBody>
         </DrawerContent>
       </Drawer>

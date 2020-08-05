@@ -14,13 +14,8 @@ import {
   TextListItem,
   TextVariants,
   CardFooter,
-  Flex,
-  Brand,
-  Divider,
 } from "@patternfly/react-core"
-import "../styles/accessibility.css"
-import pfLogo from "../images/pfLogo.svg"
-import osLogo from "../images/osLogo.svg"
+import "../styles/override.css"
 
 const AccessibilityPage = () => (
   <Layout index={2} pageSectionVariant={PageSectionVariants.default}>
@@ -28,12 +23,14 @@ const AccessibilityPage = () => (
     <Card>
       <CardTitle>What is accessibility?</CardTitle>
       <CardBody>
-        Web accessibility is the inclusive practice of ensuring there are no
-        barriers that prevent interaction with, or access to, websites on the
-        World Wide Web by people with physical disabilities, situational
-        disabilities, and socio-economic restrictions on bandwidth and speed.
-        When sites are correctly designed, developed and edited, generally all
-        users have equal access to information and functionality.
+        <Text>
+          Web accessibility is the inclusive practice of ensuring there are no
+          barriers that prevent interaction with, or access to, websites on the
+          World Wide Web by people with physical disabilities, situational
+          disabilities, and socio-economic restrictions on bandwidth and speed.
+          When sites are correctly designed, developed and edited, generally all
+          users have equal access to information and functionality.
+        </Text>
       </CardBody>
       <CardFooter>--From Wikipedia</CardFooter>
     </Card>
@@ -65,8 +62,10 @@ const AccessibilityPage = () => (
                   the item to solve the first problem.
                 </TextListItem>
                 <TextListItem>
-                  Fix the second problem that kebab toggle buttons on the title
-                  cannot open dropdown menu by keyboard.
+                  <Text>
+                    Fix the second problem that kebab toggle buttons on the
+                    title cannot open dropdown menu by keyboard.
+                  </Text>
                   <Text component={TextVariants.blockquote}>
                     This is not caused by the component itself, but caused by
                     the usage of the notification drawer. So I fixed this by
@@ -77,7 +76,9 @@ const AccessibilityPage = () => (
                 </TextListItem>
               </TextList>
               <TextListItem>
-                <b>In OpenShift:</b>
+                <Text>
+                  <b>In OpenShift:</b>
+                </Text>
                 <Text component={TextVariants.p}>
                   Except the accessibility functions above, I add a function
                   only for OpenShift. When user press Escape key, it will focus
@@ -95,11 +96,6 @@ const AccessibilityPage = () => (
         </TextContent>
       </CardBody>
     </Card>
-    <Flex className="logo-box">
-      <Brand src={pfLogo} alt="Patternfly Logo" />
-      <Divider isVertical />
-      <Brand src={osLogo} alt="Openshift Logo" />
-    </Flex>
   </Layout>
 )
 

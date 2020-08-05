@@ -17,7 +17,7 @@ import {
 import ImageResult from "../components/image-result"
 import ImageH2 from "../components/image-h2"
 import ImageH4 from "../components/image-h4"
-import "../styles/implementation.css"
+import "../styles/override.css"
 
 const ImplementationPage = () => (
   <Layout index={1} pageSectionVariant={PageSectionVariants.default}>
@@ -40,9 +40,11 @@ const ImplementationPage = () => (
               OpenShift
             </TextListItem>
             <TextListItem>
-              Find the relations between the components in these 2 products
-              (left are components in OpenShift and right are components in
-              PatternFly)
+              <Text>
+                Find the relations between the components in these 2 products
+                (left are components in OpenShift and right are components in
+                PatternFly)
+              </Text>
               <Text component={TextVariants.blockquote}>
                 <b>NotificationDrawer</b> {"->"}{" "}
                 <b>Drawer, DrawerContent, DrawerPanelContent</b>
@@ -66,8 +68,10 @@ const ImplementationPage = () => (
               components in PatternFly
             </TextListItem>
             <TextListItem>
-              Find the difference between the styles and override them in
-              OpenShift
+              <Text>
+                Find the difference between the styles and override them in
+                OpenShift
+              </Text>
               <Text component={TextVariants.blockquote}>
                 For example, the header of the notifications in OpenShift uses{" "}
                 {"<h4>"} tag in OpenShift. However, it uses {"<h2>"} tag in
