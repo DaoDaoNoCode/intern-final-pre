@@ -23,8 +23,9 @@ const IndexPage = () => (
         <TextContent>
           <TextList>
             <TextListItem>
-              Fix some bugs and Implement some functions in PatternFly. Add
-              accessibility and test cases for the components I worked on.
+              Fix some bugs and implement some functions in PatternFly. Add
+              accessibility functions and test cases for the components I worked
+              on.
             </TextListItem>
             <TextListItem>
               <Link to="/implementation">
